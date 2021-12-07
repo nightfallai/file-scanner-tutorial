@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>File Scan Viewer</title>
+    <style>
+    	table, th, td {
+		  border: 1px solid black;
+		}
+		table {
+			width: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>Detector</th>
+				<th>beforeContext</th>
+				<th>Finding</th>
+				<th>afterContext</th>
+				<th>byteRangeStart</th>
+				<th>byteRangeEnd</th>
+				<th>Confidence</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for finding in findings %}
+				<tr>
+					<td>{{ finding['detector']['name'] }}</td>
+					<td>{{ finding['beforeContext'] }}</td>
+					<td>{{ finding['finding'] }}</td>
+					<td>{{ finding['afterContext'] }}</td>
+					<td>{{ finding['location']['byteRange']['start'] }}</td>
+					<td>{{ finding['location']['byteRange']['start'] }}</td>
+					<td>{{ finding['confidence'] }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+</body>
+</html>
